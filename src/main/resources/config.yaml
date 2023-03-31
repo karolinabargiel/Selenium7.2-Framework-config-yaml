@@ -1,0 +1,21 @@
+defaultEnvironment: test
+#defaultEnvironment: preprod
+
+environments:
+  test:
+    envName: test
+    appUrl: https://www.selenium.dev/
+    eTitle: Selenium
+
+  preprod:
+    envName: preprod
+    appUrl: https://logback.qos.ch/
+    eTitle: Logback Home
+
+browser:
+  browser: chrome
+  browserAttachScreenshot: false
+  headlessMode: false
+  browserTimeout: 20
+
+
