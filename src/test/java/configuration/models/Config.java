@@ -18,11 +18,7 @@ public class Config {
 
     @JsonAnyGetter
     public List<Environment> getEnvironments() {
-        List<Environment> list = new ArrayList<>();
-        for (Environment environment : environments.values()) {
-            list.add(environment);
-        }
-        return list;
+        return environments.values().stream().toList();
     }
 
 }

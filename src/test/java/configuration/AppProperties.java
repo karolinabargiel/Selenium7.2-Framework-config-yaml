@@ -23,7 +23,7 @@ public class AppProperties {
     private void setEnvironmentProperties() {
         List<Environment> listOfEnvironments = yamlReader.getConfig().getEnvironments();
         for (Environment environment : listOfEnvironments) {
-            if (environment.getProperties().get("envName").toString().equals(yamlReader.getConfig().getDefaultEnvironment())) {
+            if (isDefaultEnvironment(environment)) {
                 Map<String, Object> environmentProperties = environment.getProperties();
                 for (Map.Entry<String, Object> entry : environmentProperties.entrySet()) {
                     System.setProperty(entry.getKey(), entry.getValue().toString());
@@ -32,6 +32,10 @@ public class AppProperties {
                 break;
             }
         }
+    }
+
+    private boolean isDefaultEnvironment(Environment environment) {
+        return environment.getProperties().get("envName").toString().equals(yamlReader.getConfig().getDefaultEnvironment());
     }
 
     private void setBrowserProperties() {
